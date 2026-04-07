@@ -1,9 +1,9 @@
 FROM richarvey/nginx-php-fpm:latest
 
-# Copiamos todo el proyecto
+# Copiamos todo el proyecto (incluyendo los assets que ya vimos en Git)
 COPY . /var/www/html
 
-# Variables de entorno críticas
+# Variables de entorno para Render
 ENV SKIP_COMPOSER 0
 ENV WEBROOT /var/www/html/public
 ENV COMPOSER_ALLOW_SUPERUSER 1
@@ -12,18 +12,18 @@ ENV APP_ENV production
 # Instalamos dependencias de PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Configuración de Base de Datos y Permisos
+# CREAR BASE DE DATOS Y PERMISOS (Cambiado a www-data para evitar el error de la imagen 5c6c92)
 RUN mkdir -p /var/www/html/database && \
     touch /var/www/html/database/database.sqlite && \
     chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database && \
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
-# Corregimos la ruta a /var/www/html/scripts (dentro de la carpeta del proyecto)
+# CONFIGURAR SCRIPT DE ARRANQUE (Corregido para evitar el error de la imagen 5cde46)
 RUN mkdir -p /var/www/html/scripts && \
     echo "php /var/www/html/artisan migrate --force" > /var/www/html/scripts/run.sh && \
     chmod +x /var/www/html/scripts/run.sh
 
-    # Le decimos a la imagen que busque el script de arranque ahí
+# Le decimos a la imagen dónde buscar el script y que lo ejecute
 ENV RUN_SCRIPTS 1
 ENV SCRIPTS_DIR /var/www/html/scripts
 
