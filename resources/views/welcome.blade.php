@@ -23,8 +23,8 @@
                 <div class="flex-shrink-0 flex items-center">
                     <span class="text-2xl font-bold tracking-tight text-indigo-600">Mnetti<span class="text-slate-900">.dev</span></span>
                 </div>
-
-                <div class="hidden md:flex space-x-8 items-center">
+# hidden md:
+                <div class="flex space-x-8 items-center">
                     <a href="#proyectos" class="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate 400 transition-colors">Proyectos</a>
                     <a href="#habilidades" class="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate 400 transition-colors">Habilidades</a>
                     <a href="#servicios" class="text-sm font-medium text-slate-600 hover:text-indigo-600 dark:text-slate 400 transition-colors">Servicios</a>
