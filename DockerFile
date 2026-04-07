@@ -1,32 +1,27 @@
-# FROM richarvey/nginx-php-fpm:latest
-# COPY . /var/www/html
-# ENV SKIP_COMPOSER 1
-# ENV WEBROOT /var/www/html/public
-# ENV PHP_ERRORS_STDERR 1
-# RUN composer install --no-dev --optimize-autoloader
-
-# Usamos una imagen optimizada para Laravel (PHP + Nginx)
 FROM richarvey/nginx-php-fpm:latest
 
-# Seteamos el directorio de trabajo
+# Copiamos todo el proyecto
 COPY . /var/www/html
 
-# Configuraciones necesarias para que Render y Laravel se entiendan
+# Variables de entorno críticas
 ENV SKIP_COMPOSER 0
-ENV PHP_ERRORS_STDERR 1
 ENV WEBROOT /var/www/html/public
 ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV APP_ENV production
 
 # Instalamos dependencias de PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Instalamos Node y compilamos el frontend (Tailwind v4)
-RUN apk add --no-cache nodejs npm && \
-    npm install && \
-    npm run build
+# Configuración de Base de Datos y Permisos
+RUN mkdir -p /var/www/html/database && \
+    touch /var/www/html/database/database.sqlite && \
+    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database && \
+    chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
-    # Crear la base de datos SQLite y ajustar permisos de escritura
-RUN touch /var/www/html/database/database.sqlite
-RUN chown -R application:application /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
-# Exponemos el puerto que usa la imagen
+# TRUCO FINAL: Forzar la migración y el arranque correcto
+ENV RUN_SCRIPTS 1
+RUN mkdir -p /var/www/scripts && \
+    echo "php /var/www/html/artisan migrate --force" > /var/www/scripts/run.sh && \
+    chmod +x /var/www/scripts/run.sh
+
 EXPOSE 80
