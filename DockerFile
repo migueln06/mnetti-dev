@@ -1,0 +1,32 @@
+# FROM richarvey/nginx-php-fpm:latest
+# COPY . /var/www/html
+# ENV SKIP_COMPOSER 1
+# ENV WEBROOT /var/www/html/public
+# ENV PHP_ERRORS_STDERR 1
+# RUN composer install --no-dev --optimize-autoloader
+
+# Usamos una imagen optimizada para Laravel (PHP + Nginx)
+FROM richarvey/nginx-php-fpm:latest
+
+# Seteamos el directorio de trabajo
+COPY . /var/www/html
+
+# Configuraciones necesarias para que Render y Laravel se entiendan
+ENV SKIP_COMPOSER 0
+ENV PHP_ERRORS_STDERR 1
+ENV WEBROOT /var/www/html/public
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Instalamos dependencias de PHP
+RUN composer install --no-dev --optimize-autoloader
+
+# Instalamos Node y compilamos el frontend (Tailwind v4)
+RUN apk add --no-cache nodejs npm && \
+    npm install && \
+    npm run build
+
+    # Crear la base de datos SQLite y ajustar permisos de escritura
+RUN touch /var/www/html/database/database.sqlite
+RUN chown -R application:application /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
+# Exponemos el puerto que usa la imagen
+EXPOSE 80
