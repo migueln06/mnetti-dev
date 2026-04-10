@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mnetti.dev</title>
+  <meta name="description" content="Portfolio de Miguel Netti. Desarrollo web, Laravel, procesamiento de datos y soluciones a medida.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="container header-grid">
+        <a class="brand" href="#home">
+          <span class="brand-mark">M</span>
+          <span class="brand-text">Mnetti.dev</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#proyectos">Proyectos</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="actions">
+          <button id="theme-toggle" class="theme-button" type="button" aria-label="Cambiar modo de color">
+            <span class="icon icon-sun">☀</span>
+            <span class="icon icon-moon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Portfolio profesional</span>
+            <h1>Desarrollo web moderno + soluciones de datos con impacto real.</h1>
+            <p>Diseño y construyo experiencias digitales limpias, rápidas y confiables. Especialista en Laravel, optimización de procesos y presentaciones web impecables.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#proyectos">Ver proyectos</a>
+              <a class="button button-secondary" href="#contacto">Contactar</a>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card-header">
+              <span class="status-pill">Portfolio Full Stack</span>
+              <span class="hero-label">Última actualización</span>
+            </div>
+            <div class="hero-card-badge">
+              <strong>Construido para</strong>
+              <p>Despliegue en Netlify como sitio estático</p>
+            </div>
+            <div class="hero-stat-grid">
+              <div>
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Optimización front</span>
+              </div>
+              <div>
+                <span class="stat-value">Rápido</span>
+                <span class="stat-label">Carga instantánea</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-surface" id="proyectos">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Proyectos destacados</span>
+            <h2>Aplicaciones para clientes, procesos y crecimiento digital.</h2>
+          </div>
+
+          <div class="card-grid">
+            <article class="feature-card">
+              <span class="feature-tag">Full Stack</span>
+              <h3>Sistema de citas e inventario</h3>
+              <p>Panel administrativo, control de stock y agenda con flujos fluidos para optimizar operaciones internas.</p>
+              <div class="chip-list">
+                <span>Laravel</span>
+                <span>PHP</span>
+                <span>Tailwind</span>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <span class="feature-tag">Data</span>
+              <h3>Automatización de entrada de datos</h3>
+              <p>Procesos de migración y limpieza de datos para reducir errores humanos y acelerar entregas.</p>
+              <div class="chip-list">
+                <span>Python</span>
+                <span>SQL</span>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <span class="feature-tag">Impacto</span>
+              <h3>Mejoras de UX y rendimiento</h3>
+              <p>Interfaces claras, navegación rápida y estilo profesional pensado para convertir visitantes en clientes.</p>
+              <div class="chip-list">
+                <span>UI</span>
+                <span>Netlify</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="habilidades">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Stack tecnológico</span>
+            <h2>Herramientas que domino para impulsar tus proyectos.</h2>
+          </div>
+
+          <div class="skill-grid">
+            <div class="skill-pill">Laravel</div>
+            <div class="skill-pill">PHP</div>
+            <div class="skill-pill">JavaScript</div>
+            <div class="skill-pill">Tailwind CSS</div>
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">SQL / MySQL</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-surface" id="servicios">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Servicios</span>
+            <h2>De la idea al resultado con tecnología estable y escalable.</h2>
+          </div>
+
+          <div class="service-grid">
+            <div class="service-card">
+              <h3>Desarrollo web corporativo</h3>
+              <p>Sistemas a la medida para empresas que buscan crecimiento digital sin sacrificar estabilidad.</p>
+            </div>
+            <div class="service-card">
+              <h3>Optimización de datos</h3>
+              <p>Automatización y depuración de información para procesos más rápidos y fiables.</p>
+            </div>
+            <div class="service-card">
+              <h3>Consultoría técnica</h3>
+              <p>Diagnóstico y mejoras en herramientas, rendimiento y experiencia de usuario.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <span class="eyebrow">Hablemos</span>
+            <h2>Listo para transformar tu próximo proyecto.</h2>
+            <p>Puedes escribirme directamente o usar el formulario para contarme los detalles. Respondo rápido y con propuestas claras.</p>
+
+            <div class="contact-details">
+              <div>
+                <strong>Email</strong>
+                <p>miguelnet93@gmail.com</p>
+              </div>
+              <div>
+                <strong>Ubicación</strong>
+                <p>Barcelona, Anzoátegui, Venezuela</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" action="https://formspree.io/f/mreojzgn" method="POST">
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="name" placeholder="Tu nombre" required>
+            </label>
+            <label>
+              <span>Correo</span>
+              <input type="email" name="email" placeholder="tu@correo.com" required>
+            </label>
+            <label>
+              <span>Mensaje</span>
+              <textarea name="message" rows="5" placeholder="¿En qué puedo ayudarte?" required></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <p>© 2026 Mnetti.dev ·</p>
+        <div class="social-links">
+          <a href="https://linkedin.com/in/miguelnetti" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/migueln06" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://wa.me/+584224405454" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
